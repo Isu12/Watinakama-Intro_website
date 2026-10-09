@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home | Watinakama.LK - R26-IT-071</title>
+<meta name="description" content="Watinakama.LK is an AI-powered vehicle inspection and valuation system for the Sri Lankan second-hand vehicle market.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="Watinakama.LK logo" width="44" height="44">
+      <div><strong>Watinakama.LK</strong><span>RESEARCH PROJECT R26-IT-071</span></div>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">&#9776;</label>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li class="has-sub"><a href="domain.html">Domain</a>
+          <ul class="sub">
+            <li><a href="domain.html#literature-survey">Literature Survey</a></li>
+            <li><a href="domain.html#research-gap">Research Gap</a></li>
+            <li><a href="domain.html#research-problem">Research Problem</a></li>
+            <li><a href="domain.html#research-objectives">Research Objectives</a></li>
+            <li><a href="domain.html#methodology">Methodology</a></li>
+            <li><a href="domain.html#technologies">Technologies Used</a></li>
+          </ul>
+        </li>
+        <li class="has-sub"><a href="milestones.html">Milestones</a>
+          <ul class="sub">
+            <li><a href="milestones.html#proposal">Project Proposal</a></li>
+            <li><a href="milestones.html#pp1">Progress Presentation 1</a></li>
+            <li><a href="milestones.html#pp2">Progress Presentation 2</a></li>
+            <li><a href="milestones.html#final">Final Assessment</a></li>
+            <li><a href="milestones.html#viva">Viva</a></li>
+          </ul>
+        </li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">SLIIT Research Project &middot; R26-IT-071</span>
+      <h1>Know what a used vehicle is really worth before you buy it.</h1>
+      <p class="lead">Watinakama.LK is an AI-powered vehicle inspection and valuation system. With nothing more than a smartphone, a buyer can check a vehicle's identity, body condition and engine health, and receive a fair, evidence-based market price.</p>
+      <div class="btn-row">
+        <a class="btn" href="domain.html">Explore the research</a>
+        <a class="btn ghost" href="documents.html">Documents</a>
+        <a class="btn ghost" href="about.html">Meet the team</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="images/car_logo.png" alt="" width="640" height="169">
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Abstract</h2>
+    <div class="grid c2">
+      <div>
+        <p>Buying a second-hand vehicle in Sri Lanka depends heavily on trust. Sellers know far more about a vehicle than buyers do, prices are set by negotiation rather than evidence, and an independent inspection needs a mechanic, a body-shop expert and time that most buyers do not have. Tampered chassis numbers, concealed accident damage and early-stage engine faults are routinely missed until after the sale.</p>
+        <p>Watinakama.LK addresses this with four cooperating machine-learning components delivered through one mobile application. A convolutional network verifies whether the VIN plate is original or altered. A set of lightweight image classifiers inspects five views of the exterior and produces a Body Condition Score. An audio pipeline built on YAMNet embeddings and a support vector machine listens to the engine and produces a Mechanical Health Score.</p>
+      </div>
+      <div>
+        <p>Finally, a stacking ensemble combines these three condition signals with the vehicle's specifications to estimate a fair market value and to tell the buyer whether the asking price is a good deal, fair, or overpriced.</p>
+        <p>What is new is the integration. Existing work treats damage detection, engine diagnosis and price prediction as separate problems, and existing price models rely on listing data alone. This project links measured condition to price in a single workflow that a non-expert can complete in minutes.</p>
+        <ul class="tags">
+          <li>Computer vision</li><li>Audio classification</li><li>Transfer learning</li><li>Ensemble regression</li><li>Mobile application</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <h2>Four research components, one inspection</h2>
+    <p class="section-intro">Each component is an independent research contribution with its own model, dataset and API. Together they form the inspection workflow.</p>
+    <div class="grid c4">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>VIN Authentication</h3>
+        <p>Classifies a photographed VIN plate as Original, Altered or Needs Review using a fine-tuned ResNet50.</p>
+      </div>
+      <div class="card">
+        <span class="num">2</span>
+        <h3>Body Condition Analysis</h3>
+        <p>Analyses front, rear, left, right and roof images for damage and returns a Body Condition Score from 0 to 100.</p>
+      </div>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>Engine Sound Diagnosis</h3>
+        <p>Detects knocking, misfiring, imbalance, tappet noise and starting faults from a phone recording, with a Mechanical Health Score.</p>
+      </div>
+      <div class="card">
+        <span class="num">4</span>
+        <h3>Market Valuation</h3>
+        <p>Combines specifications with the three condition results to predict a fair price and a buy / negotiate verdict.</p>
+      </div>
+    </div>
+    <div class="btn-row"><a class="btn ghost" href="domain.html#methodology">See the methodology</a></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2>Results at a glance</h2>
+    <p class="section-intro">Best-performing model for each component, as evaluated on the project's held-out test data. Full comparisons are on the <a href="domain.html#results">Domain page</a>.</p>
+    <div class="grid c4">
+      <div class="card stat"><b>82.69%</b><span>VIN tamper classification<br>Fine-tuned ResNet50</span></div>
+      <div class="card stat"><b>86.98%</b><span>Body damage classification<br>MobileNetV3 + EfficientNetV2 ensemble</span></div>
+      <div class="card stat"><b>92.50%</b><span>Engine fault classification<br>YAMNet + tuned SVM</span></div>
+      <div class="card stat"><b>96.70%</b><span>Price prediction<br>Stacking ensemble, MAE &asymp; LKR 121,000</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="grid c2">
+      <div>
+        <h2>How an inspection works</h2>
+        <ol class="steps">
+          <li><strong>Enter vehicle details.</strong> Make, model, year, mileage and the seller's asking price.</li>
+          <li><strong>Scan the VIN plate.</strong> The app checks the photo and the VIN model returns its verdict.</li>
+          <li><strong>Photograph five views.</strong> Each photo is validated against the expected view before damage analysis.</li>
+          <li><strong>Record the engine.</strong> Three short recordings: start, idle and acceleration.</li>
+          <li><strong>Read the report.</strong> Component scores, a fair market value, a negotiation range and a verdict.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>Explore this site</h2>
+        <div class="grid c2">
+          <a class="card" href="domain.html"><h3>Domain</h3><p>Literature, gap, problem, objectives, methodology and technologies.</p></a>
+          <a class="card" href="milestones.html"><h3>Milestones</h3><p>Every assessment, with dates and the full project timeline.</p></a>
+          <a class="card" href="documents.html"><h3>Documents</h3><p>Charter, proposal, checklists and final reports.</p></a>
+          <a class="card" href="presentations.html"><h3>Presentations</h3><p>Slides from each presentation.</p></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>Watinakama.LK</h2>
+        <p>An AI-powered vehicle inspection and valuation system for the Sri Lankan second-hand vehicle market. Undergraduate research project R26-IT-071, Sri Lanka Institute of Information Technology (SLIIT).</p>
+      </div>
+      <div>
+        <h2>Site map</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="domain.html">Domain</a></li>
+          <li><a href="milestones.html">Milestones</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="presentations.html">Presentations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="mailto:it22294852@my.sliit.lk">it22294852@my.sliit.lk</a></li>
+          <li><a href="https://github.com/Minosh96/R26-IT-071" rel="noopener">Source code on GitHub</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Watinakama.LK research group (R26-IT-071). Produced for academic assessment.</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

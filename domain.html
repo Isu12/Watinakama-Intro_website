@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain | Watinakama.LK - R26-IT-071</title>
+<meta name="description" content="Literature survey, research gap, research problem, objectives, methodology and technologies of the Watinakama.LK research project.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="images/logo.png" alt="Watinakama.LK logo" width="44" height="44">
+      <div><strong>Watinakama.LK</strong><span>RESEARCH PROJECT R26-IT-071</span></div>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">&#9776;</label>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-sub"><a href="domain.html" aria-current="page">Domain</a>
+          <ul class="sub">
+            <li><a href="domain.html#literature-survey">Literature Survey</a></li>
+            <li><a href="domain.html#research-gap">Research Gap</a></li>
+            <li><a href="domain.html#research-problem">Research Problem</a></li>
+            <li><a href="domain.html#research-objectives">Research Objectives</a></li>
+            <li><a href="domain.html#methodology">Methodology</a></li>
+            <li><a href="domain.html#technologies">Technologies Used</a></li>
+          </ul>
+        </li>
+        <li class="has-sub"><a href="milestones.html">Milestones</a>
+          <ul class="sub">
+            <li><a href="milestones.html#proposal">Project Proposal</a></li>
+            <li><a href="milestones.html#pp1">Progress Presentation 1</a></li>
+            <li><a href="milestones.html#pp2">Progress Presentation 2</a></li>
+            <li><a href="milestones.html#final">Final Assessment</a></li>
+            <li><a href="milestones.html#viva">Viva</a></li>
+          </ul>
+        </li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Domain</span></nav>
+    <h1>Domain</h1>
+    <p>The research background of Watinakama.LK: what is already known, what is missing, the problem we set out to solve, and how we solved it.</p>
+  </div>
+</div>
+<div class="wrap with-toc">
+  <aside class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#literature-survey">Literature survey</a></li>
+      <li><a href="#research-gap">Research gap</a></li>
+      <li><a href="#research-problem">Research problem</a></li>
+      <li><a href="#research-objectives">Research objectives</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#technologies">Technologies used</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </aside>
+
+  <div class="prose">
+
+    <section id="literature-survey">
+      <h2>1. Literature survey</h2>
+      <p>The survey covers the four areas the system draws on, plus the economic context that motivates it.</p>
+
+      <h3>1.1 Information asymmetry in used-vehicle markets</h3>
+      <p>Akerlof's analysis of the used-car market showed that when sellers know more about quality than buyers, good vehicles are undervalued and poor ones overvalued, and trust in the whole market declines.<sup><a href="#ref1">[1]</a></sup> The practical remedies are independent inspection and transparent pricing. Both are expensive when they depend on human experts, which is the opening for automated, low-cost inspection.</p>
+
+      <h3>1.2 Image-based tamper and manipulation detection</h3>
+      <p>Deep convolutional networks have become the standard approach to image classification, and residual networks in particular made very deep models trainable.<sup><a href="#ref2">[2]</a></sup> In image forensics, Bayar and Stamm showed that a CNN can learn manipulation traces directly from pixels instead of relying on hand-designed forensic features.<sup><a href="#ref3">[3]</a></sup> Most of this work targets general photographs or documents. Stamped or engraved VIN plates photographed in poor lighting on a phone are a different input, and public datasets of tampered VIN plates are not available, so transfer learning from ImageNet-pretrained backbones such as ResNet and MobileNet<sup><a href="#ref4">[4]</a></sup> with task-specific fine-tuning is the realistic route.</p>
+
+      <h3>1.3 Vehicle exterior damage assessment</h3>
+      <p>Patil et al. demonstrated that transfer learning on pretrained CNNs can classify car damage types from photographs even with a small dataset.<sup><a href="#ref5">[5]</a></sup> The CarDD dataset later provided a large public benchmark for damage detection and segmentation and showed that small, low-contrast damage such as scratches remains hard.<sup><a href="#ref6">[6]</a></sup> This literature is driven by insurance-claim processing: it asks what is damaged, not what the damage does to the vehicle's value. Efficient architectures such as MobileNetV3<sup><a href="#ref7">[7]</a></sup> and EfficientNetV2<sup><a href="#ref8">[8]</a></sup> make it feasible to serve such models cheaply for a mobile client.</p>
+
+      <h3>1.4 Acoustic fault diagnosis</h3>
+      <p>Engine condition monitoring has traditionally used vibration sensors or hand-crafted audio features such as MFCCs with classical classifiers. Large-scale audio pretraining changed the options available: AudioSet<sup><a href="#ref9">[9]</a></sup> and the CNN architectures trained on it<sup><a href="#ref10">[10]</a></sup> produced general-purpose audio embeddings, of which YAMNet is a widely used lightweight example. Pairing such embeddings with a support vector machine<sup><a href="#ref11">[11]</a></sup> suits small datasets, because only the classifier has to be trained. The open questions are whether this works on uncontrolled smartphone recordings, and how to obtain labelled fault recordings at all.</p>
+
+      <h3>1.5 Used-vehicle price prediction</h3>
+      <p>Pudaruth<sup><a href="#ref12">[12]</a></sup> and Gegic et al.<sup><a href="#ref13">[13]</a></sup> applied machine learning to used-car prices and found that ensembles of models outperform single regressors. Tree ensembles such as Random Forests,<sup><a href="#ref14">[14]</a></sup> XGBoost<sup><a href="#ref15">[15]</a></sup> and LightGBM<sup><a href="#ref16">[16]</a></sup> are now the usual choice for tabular data, and stacked generalisation<sup><a href="#ref17">[17]</a></sup> offers a principled way to combine them. These studies share one limitation: their inputs are listing attributes such as make, year, mileage and fuel type. Two vehicles with identical listings but very different physical condition receive the same predicted price.</p>
+
+      <div class="callout">
+        <p><strong>Summary of the survey.</strong> Each sub-problem has a credible technical basis. What the literature does not provide is a system that measures condition directly and carries that measurement through to price, in a form a private buyer can use.</p>
+      </div>
+    </section>
+
+    <section id="research-gap">
+      <h2>2. Research gap</h2>
+      <p>Comparing the surveyed approaches against the capabilities a buyer needs exposes four gaps.</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Capability comparison between existing approaches and Watinakama.LK</caption>
+          <thead>
+            <tr><th>Capability</th><th>Damage-detection research</th><th>Acoustic-diagnosis research</th><th>Price-prediction research</th><th>Watinakama.LK</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vehicle identity (VIN) verification</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Exterior condition scored numerically</td><td class="part">Partly</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Engine fault diagnosis from a phone</td><td class="no">No</td><td class="part">Partly</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Price adjusted for measured condition</td><td class="no">No</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Usable by a non-expert, no special hardware</td><td class="part">Partly</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Localised to Sri Lankan prices (LKR)</td><td class="no">No</td><td class="no">No</td><td class="part">Partly</td><td class="yes">Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ol>
+        <li><strong>No integrated pipeline.</strong> Identity, body, engine and price are studied in isolation. No surveyed work chains them into one assessment.</li>
+        <li><strong>Price models ignore measured condition.</strong> Existing predictors use listing attributes only, so they cannot distinguish a well-kept vehicle from a damaged one with the same specifications.</li>
+        <li><strong>Diagnosis assumes specialist equipment.</strong> Acoustic and vibration approaches generally assume controlled recordings or dedicated sensors, not a buyer's phone on a seller's driveway.</li>
+        <li><strong>Data scarcity for the local context.</strong> There are no public datasets of tampered VIN plates or labelled faulty-engine recordings suited to this market, so a method for building training data is itself part of the research.</li>
+      </ol>
+    </section>
+
+    <section id="research-problem">
+      <h2>3. Research problem</h2>
+      <div class="callout">
+        <p><strong>How can a buyer with no mechanical expertise and no equipment other than a smartphone obtain an objective, evidence-based assessment of a used vehicle's authenticity, physical condition and mechanical health, and a fair market price that reflects that assessment?</strong></p>
+      </div>
+      <p>The problem breaks down into four sub-problems, one for each component:</p>
+      <div class="grid c2">
+        <div class="card"><h4>Identity</h4><p>Can VIN plate tampering be detected from a single phone photograph, with uncertain cases flagged for human review instead of being forced into a verdict?</p></div>
+        <div class="card"><h4>Body</h4><p>Can exterior damage across five views be recognised reliably and reduced to one interpretable score?</p></div>
+        <div class="card"><h4>Engine</h4><p>Can common engine faults be distinguished from healthy operation using short, noisy smartphone recordings?</p></div>
+        <div class="card"><h4>Price</h4><p>Does adding measured condition to vehicle specifications produce a more useful fair-value estimate, and can it be turned into advice a buyer can act on?</p></div>
+      </div>
+    </section>
+
+    <section id="research-objectives">
+      <h2>4. Research objectives</h2>
+      <h3>Main objective</h3>
+      <p>To design, implement and evaluate an integrated, smartphone-based system that verifies a used vehicle's identity, assesses its body and engine condition, and predicts a condition-aware fair market price for the Sri Lankan second-hand market.</p>
+      <h3>Specific objectives</h3>
+      <ol>
+        <li>Develop an image classifier that labels VIN plate images as <em>Original</em>, <em>Altered</em> or <em>Needs Review</em>, and compare pretrained CNN backbones for the task.</li>
+        <li>Develop a body-condition pipeline that validates five exterior views, classifies damage and the affected body part, and computes a Body Condition Score (0&ndash;100).</li>
+        <li>Develop an audio pipeline that classifies engine recordings as healthy or as one of five fault types and computes a Mechanical Health Score (0&ndash;100) with plain-language recommendations.</li>
+        <li>Develop a valuation model that combines vehicle specifications with the outputs of objectives 1&ndash;3 to estimate fair value, a negotiation range and a verdict.</li>
+        <li>Build training datasets for each task using augmentation and synthetic generation where real data is scarce, and document the method.</li>
+        <li>Deliver the four models through a single cross-platform mobile application with a guided inspection workflow.</li>
+        <li>Evaluate each model against baseline alternatives and report the comparison.</li>
+      </ol>
+    </section>
+
+    <section id="methodology">
+      <h2>5. Methodology</h2>
+      <p>The system is built as four independent model services behind one gateway, consumed by one mobile app. Each service can be trained, tested and deployed separately, which let the four components progress in parallel.</p>
+
+      <figure>
+        <a class="frame" href="images/system-architecture.png"><img src="images/system-architecture.png" width="1202" height="467" alt="System architecture: the mobile app sends inspection data through an API gateway to the VIN authentication, body condition and mechanical health services; their results, with the vehicle details and asking price, go to the fair market value service, which returns the fair value, negotiation range and verdict to the app."></a>
+        <figcaption>Figure 1. System architecture. Dashed lines show the valuation request and the report returned to the app. The gateway attaches service credentials, so no API secrets are stored in the app.</figcaption>
+      </figure>
+
+      <h3>5.1 Research process</h3>
+      <ol class="steps">
+        <li><strong>Requirements and survey.</strong> Review of the literature and of how vehicles are inspected and priced in practice.</li>
+        <li><strong>Data acquisition.</strong> Collection of baseline images, recordings and price records, followed by augmentation and synthetic generation.</li>
+        <li><strong>Model experiments.</strong> For each component, several candidate architectures were trained and compared on held-out data.</li>
+        <li><strong>Service implementation.</strong> The selected model for each component was wrapped in a REST API with input validation.</li>
+        <li><strong>Integration.</strong> A Flutter app, an API gateway and containerised cloud deployment join the services into one workflow.</li>
+        <li><strong>Evaluation.</strong> Accuracy on test data per component, and end-to-end testing of the inspection flow.</li>
+      </ol>
+
+      <figure>
+        <a class="frame" href="images/component-pipelines.png"><img src="images/component-pipelines.png" width="1576" height="426" loading="lazy" alt="Processing pipeline of each component, from input to output. C1: VIN plate photo, quality check, CNN classifier, confidence check, verdict. C2: five view photos, view validator, damage classifiers, scoring formula, Body Condition Score. C3: three recordings, quality check, YAMNet embedding, SVM classifier, Mechanical Health Score. C4: vehicle details and component results, feature engineering, stacking ensemble, fair value, verdict."></a>
+        <figcaption>Figure 2. Processing pipeline of each component, from the user's input to the result shown in the app. Select a figure to open it at full size.</figcaption>
+      </figure>
+
+      <h3>5.2 Component 1: VIN authentication</h3>
+      <p>A VIN plate photograph is quality-checked, preprocessed and passed to a CNN classifier. The output is one of three classes: <span class="pill green">Original</span> <span class="pill red">Altered</span> <span class="pill amber">Needs Review</span>. The third class exists so that low-confidence cases are referred to a person. Because real tampered plates are rare, a script generates tampered examples from genuine images by altering characters and adding blur, shift and noise. Six model configurations were compared, and a ResNet50 with its upper layers fine-tuned performed best.</p>
+
+      <h3>5.3 Component 2: Body condition analysis</h3>
+      <p>The user photographs the front, rear, left, right and roof. Three models run in sequence:</p>
+      <ul>
+        <li>a <strong>view validator</strong> (MobileNetV3-Small) that rejects a photo uploaded to the wrong slot before any analysis is done;</li>
+        <li>a <strong>damage classifier</strong> (MobileNetV3-Small) and a <strong>body-part classifier</strong> (EfficientNetV2-B0), whose predictions are blended.</li>
+      </ul>
+      <p>Damage type and severity per view are combined by a scoring formula into a Body Condition Score from 0 to 100. The dataset was expanded with rotation, flip and crop augmentation.</p>
+
+      <h3>5.4 Component 3: Engine sound diagnosis</h3>
+      <p>The user records the engine at start, idle and acceleration. Each clip is checked for duration and amplitude, resampled to 16&nbsp;kHz mono and passed through YAMNet to obtain a 1024-dimensional embedding, which an SVM classifies as Healthy, Knocking, Misfiring, Rotational Imbalance, Tappet Noise or Battery/Starting Fault. The result is converted to a Mechanical Health Score:</p>
+      <p><span class="pill green">80&ndash;100 Healthy</span> <span class="pill amber">50&ndash;79 Inspection recommended</span> <span class="pill red">0&ndash;49 Critical fault</span></p>
+      <p>Labelled faulty recordings were not available, so a <strong>synthetic fault generator</strong> injects fault signatures into healthy recordings: high-frequency impulses for knocking, periodic amplitude drops for misfiring, and repetitive high-pitched taps for tappet noise. Time-shift, noise and pitch augmentation add variety. Sixteen healthy recordings yielded more than 400 training clips.</p>
+
+      <h3>5.5 Component 4: Market valuation</h3>
+      <p>Vehicle specifications are combined with the VIN status, Body Condition Score and engine result. A stacking regressor (Random Forest, XGBoost and LightGBM base learners with a Ridge final estimator) predicts fair market value in LKR. Repair-cost ranges for the detected engine fault and body damage produce a negotiation range, and the asking price is compared with fair value:</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Condition</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>VIN classified as altered</td><td><span class="pill red">Do not buy</span></td></tr>
+            <tr><td>Asking price more than 5% above fair value</td><td><span class="pill amber">Overpriced</span></td></tr>
+            <tr><td>Asking price within 5% of fair value</td><td><span class="pill">Fair price</span></td></tr>
+            <tr><td>Asking price more than 5% below fair value</td><td><span class="pill green">Good deal</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The training set of more than 2,000 records was produced by a Monte Carlo style simulation over a base set of historical prices, so that combinations of body score, engine fault and mileage are all represented.</p>
+
+      <h3>5.6 Mobile application and integration</h3>
+      <p>The Flutter app guides the user through vehicle details, VIN scan, five-view body capture, three-stage audio recording and the results report. It checks that every backend is reachable before an inspection starts, keeps inspection data locally until the valuation is complete, and stores inspection history. Sign-in uses Firebase Authentication with e-mail verification and optional biometric unlock.</p>
+
+      <h3>5.7 Limitations</h3>
+      <p>Much of the training data is augmented or synthetic. The reported accuracies therefore describe performance on data drawn from the same process, and validation on larger sets of real tampered plates, real faulty engines and real transaction prices is the main item of future work.</p>
+    </section>
+
+    <section id="results">
+      <h2>6. Results</h2>
+      <div class="table-scroll">
+        <table>
+          <caption>Selected model, accuracy and data for each component</caption>
+          <thead><tr><th>Component</th><th>Selected model</th><th>Accuracy</th><th>Data</th><th>How the data was obtained</th></tr></thead>
+          <tbody>
+            <tr><td>C1 VIN authentication</td><td>ResNet50, fine-tuned</td><td>82.69%</td><td>300+ images</td><td>Real VIN images plus synthetically tampered copies</td></tr>
+            <tr><td>C2 Body condition</td><td>MobileNetV3 + EfficientNetV2 ensemble</td><td>86.98%</td><td>500+ images</td><td>Base dataset expanded by rotation, flip and crop</td></tr>
+            <tr><td>C3 Engine audio</td><td>YAMNet + tuned SVM</td><td>92.50%</td><td>400+ clips</td><td>16 healthy recordings expanded by the fault generator</td></tr>
+            <tr><td>C4 Market valuation</td><td>Stacking ensemble (RF, XGBoost, LightGBM)</td><td>96.70%</td><td>2,000+ records</td><td>Simulated from a base set of historical prices</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Model comparisons</h3>
+      <div class="grid c2">
+        <div class="table-scroll">
+          <table>
+            <caption>C1: VIN tamper detection</caption>
+            <thead><tr><th>Model</th><th>Accuracy</th></tr></thead>
+            <tbody>
+              <tr><td>EfficientNetB0</td><td>73.08%</td></tr>
+              <tr><td>MobileNetV2</td><td>75.00%</td></tr>
+              <tr><td>MobileNetV3-Large</td><td>76.92%</td></tr>
+              <tr><td>ResNet50</td><td>78.85%</td></tr>
+              <tr><td>Hybrid (ResNet50 + MobileNetV3-Large)</td><td>80.77%</td></tr>
+              <tr class="best"><td>ResNet50, fine-tuned</td><td>82.69%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <caption>C2: Body damage classification</caption>
+            <thead><tr><th>Model</th><th>Accuracy</th></tr></thead>
+            <tbody>
+              <tr><td>EfficientNetV2-B0</td><td>85.12%</td></tr>
+              <tr><td>MobileNetV3-Small</td><td>85.58%</td></tr>
+              <tr class="best"><td>Weighted ensemble (15% / 85%)</td><td>86.98%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <caption>C3: Engine fault classification</caption>
+            <thead><tr><th>Model</th><th>Accuracy</th></tr></thead>
+            <tbody>
+              <tr><td>MFCC + Random Forest</td><td>&asymp; 84%</td></tr>
+              <tr><td>MFCC + SVM</td><td>86.00%</td></tr>
+              <tr><td>YAMNet + SVM (default parameters)</td><td>90.06%</td></tr>
+              <tr class="best"><td>YAMNet + SVM (grid-searched C, gamma)</td><td>92.50%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <caption>C4: Price prediction</caption>
+            <thead><tr><th>Model</th><th>Accuracy</th></tr></thead>
+            <tbody>
+              <tr><td>Random Forest / XGBoost alone</td><td>92&ndash;94%</td></tr>
+              <tr class="best"><td>Stacking regressor (Ridge final estimator)</td><td>96.70%, MAE &asymp; LKR 121,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="technologies">
+      <h2>7. Technologies used</h2>
+      <div class="grid c2">
+        <div class="card"><h4>Machine learning</h4><ul class="tags"><li>TensorFlow / Keras</li><li>scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>YAMNet</li><li>ResNet50</li><li>MobileNetV3</li><li>EfficientNetV2</li></ul></div>
+        <div class="card"><h4>Data and signal processing</h4><ul class="tags"><li>Python</li><li>OpenCV</li><li>Librosa</li><li>NumPy</li><li>pandas</li><li>Roboflow</li></ul></div>
+        <div class="card"><h4>Backend services</h4><ul class="tags"><li>FastAPI</li><li>Flask</li><li>Uvicorn</li><li>Swagger / OpenAPI</li><li>Bearer-token auth</li></ul></div>
+        <div class="card"><h4>Mobile application</h4><ul class="tags"><li>Flutter</li><li>Dart</li><li>Firebase Authentication</li><li>Camera and audio recording plugins</li><li>Biometric unlock</li></ul></div>
+        <div class="card"><h4>Deployment</h4><ul class="tags"><li>Docker</li><li>Azure App Service</li></ul></div>
+        <div class="card"><h4>Collaboration</h4><ul class="tags"><li>Git</li><li>GitHub</li><li>Microsoft Teams</li></ul></div>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ol class="refs">
+        <li id="ref1">G. A. Akerlof, "The market for 'lemons': Quality uncertainty and the market mechanism," <em>The Quarterly Journal of Economics</em>, vol. 84, no. 3, pp. 488&ndash;500, 1970.</li>
+        <li id="ref2">K. He, X. Zhang, S. Ren, and J. Sun, "Deep residual learning for image recognition," in <em>Proc. IEEE CVPR</em>, 2016, pp. 770&ndash;778.</li>
+        <li id="ref3">B. Bayar and M. C. Stamm, "A deep learning approach to universal image manipulation detection using a new convolutional layer," in <em>Proc. ACM Workshop on Information Hiding and Multimedia Security</em>, 2016, pp. 5&ndash;10.</li>
+        <li id="ref4">M. Sandler, A. Howard, M. Zhu, A. Zhmoginov, and L.-C. Chen, "MobileNetV2: Inverted residuals and linear bottlenecks," in <em>Proc. IEEE CVPR</em>, 2018, pp. 4510&ndash;4520.</li>
+        <li id="ref5">K. Patil, M. Kulkarni, A. Sriraman, and S. Karande, "Deep learning based car damage classification," in <em>Proc. IEEE ICMLA</em>, 2017, pp. 50&ndash;54.</li>
+        <li id="ref6">X. Wang, W. Li, and Z. Wu, "CarDD: A new dataset for vision-based car damage detection," <em>IEEE Transactions on Intelligent Transportation Systems</em>, vol. 24, no. 7, pp. 7202&ndash;7214, 2023.</li>
+        <li id="ref7">A. Howard <em>et al.</em>, "Searching for MobileNetV3," in <em>Proc. IEEE/CVF ICCV</em>, 2019, pp. 1314&ndash;1324.</li>
+        <li id="ref8">M. Tan and Q. V. Le, "EfficientNetV2: Smaller models and faster training," in <em>Proc. ICML</em>, 2021, pp. 10096&ndash;10106.</li>
+        <li id="ref9">J. F. Gemmeke <em>et al.</em>, "Audio Set: An ontology and human-labeled dataset for audio events," in <em>Proc. IEEE ICASSP</em>, 2017, pp. 776&ndash;780.</li>
+        <li id="ref10">S. Hershey <em>et al.</em>, "CNN architectures for large-scale audio classification," in <em>Proc. IEEE ICASSP</em>, 2017, pp. 131&ndash;135.</li>
+        <li id="ref11">C. Cortes and V. Vapnik, "Support-vector networks," <em>Machine Learning</em>, vol. 20, no. 3, pp. 273&ndash;297, 1995.</li>
+        <li id="ref12">S. Pudaruth, "Predicting the price of used cars using machine learning techniques," <em>International Journal of Information &amp; Computation Technology</em>, vol. 4, no. 7, pp. 753&ndash;764, 2014.</li>
+        <li id="ref13">E. Gegic, B. Isakovic, D. Keco, Z. Masetic, and J. Kevric, "Car price prediction using machine learning techniques," <em>TEM Journal</em>, vol. 8, no. 1, pp. 113&ndash;118, 2019.</li>
+        <li id="ref14">L. Breiman, "Random forests," <em>Machine Learning</em>, vol. 45, no. 1, pp. 5&ndash;32, 2001.</li>
+        <li id="ref15">T. Chen and C. Guestrin, "XGBoost: A scalable tree boosting system," in <em>Proc. ACM SIGKDD</em>, 2016, pp. 785&ndash;794.</li>
+        <li id="ref16">G. Ke <em>et al.</em>, "LightGBM: A highly efficient gradient boosting decision tree," in <em>Advances in Neural Information Processing Systems</em>, vol. 30, 2017.</li>
+        <li id="ref17">D. H. Wolpert, "Stacked generalization," <em>Neural Networks</em>, vol. 5, no. 2, pp. 241&ndash;259, 1992.</li>
+      </ol>
+    </section>
+
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h2>Watinakama.LK</h2>
+        <p>An AI-powered vehicle inspection and valuation system for the Sri Lankan second-hand vehicle market. Undergraduate research project R26-IT-071, Sri Lanka Institute of Information Technology (SLIIT).</p>
+      </div>
+      <div>
+        <h2>Site map</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="domain.html">Domain</a></li>
+          <li><a href="milestones.html">Milestones</a></li>
+          <li><a href="documents.html">Documents</a></li>
+          <li><a href="presentations.html">Presentations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href="mailto:it22294852@my.sliit.lk">it22294852@my.sliit.lk</a></li>
+          <li><a href="https://github.com/Minosh96/R26-IT-071" rel="noopener">Source code on GitHub</a></li>
+          <li><a href="contact.html">Contact form</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">&copy; 2026 Watinakama.LK research group (R26-IT-071). Produced for academic assessment.</p>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
