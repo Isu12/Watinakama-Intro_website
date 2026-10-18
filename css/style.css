@@ -245,6 +245,8 @@ img.avatar { display: block; padding: 0; }
 .member .role { font-weight: 600; color: var(--blue-dark); font-size: .92rem; margin-bottom: 8px; }
 .member p { font-size: .9rem; }
 .member a { font-size: .88rem; word-break: break-all; }
+.profile { display: flex; align-items: center; gap: 22px; text-align: left; }
+.profile .photo { width: 180px; height: auto; flex-shrink: 0; border-radius: var(--radius); border: 1px solid var(--line); }
 
 /* ---------- Contact ---------- */
 .form-row { margin-bottom: 14px; }
@@ -304,6 +306,8 @@ textarea { min-height: 150px; resize: vertical; }
   .brand span { display: none; }
   section.block { padding: 36px 0; }
   .picker select { width: 100%; min-width: 0; }
+  .profile { flex-direction: column; text-align: center; }
+  .profile .photo { width: 100%; max-width: 280px; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
