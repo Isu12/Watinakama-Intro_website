@@ -69,6 +69,7 @@
       <li><a href="#methodology">Methodology</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#technologies">Technologies used</a></li>
+      <li><a href="#future-work">Commercialization and future work</a></li>
       <li><a href="#references">References</a></li>
     </ol>
   </aside>
@@ -214,7 +215,11 @@
       <h3>5.6 Mobile application and integration</h3>
       <p>The Flutter app guides the user through vehicle details, VIN scan, five-view body capture, three-stage audio recording and the results report. It checks that every backend is reachable before an inspection starts, keeps inspection data locally until the valuation is complete, and stores inspection history. Sign-in uses Firebase Authentication with e-mail verification and optional biometric unlock.</p>
 
-      <h3>5.7 Limitations</h3>
+      <h3>5.7 Deployment and release</h3>
+      <p>All four model services and the API gateway are deployed on Microsoft Azure as Docker containers on Azure App Service, hosted under the Azure for Students package. The mobile app connects only to the gateway, which routes each request to the right service.</p>
+      <p>The Android app is released on GitHub. The latest version, <a href="https://github.com/Minosh96/R26-IT-071/releases/latest" rel="noopener">Watinakama v1.1.0</a>, can be downloaded from the repository's Releases page and works against the live Azure services.</p>
+
+      <h3>5.8 Limitations</h3>
       <p>Much of the training data is augmented or synthetic. The reported accuracies therefore describe performance on data drawn from the same process, and validation on larger sets of real tampered plates, real faulty engines and real transaction prices is the main item of future work.</p>
     </section>
 
@@ -292,9 +297,18 @@
         <div class="card"><h4>Data and signal processing</h4><ul class="tags"><li>Python</li><li>OpenCV</li><li>Librosa</li><li>NumPy</li><li>pandas</li><li>Roboflow</li></ul></div>
         <div class="card"><h4>Backend services</h4><ul class="tags"><li>FastAPI</li><li>Flask</li><li>Uvicorn</li><li>Swagger / OpenAPI</li><li>Bearer-token auth</li></ul></div>
         <div class="card"><h4>Mobile application</h4><ul class="tags"><li>Flutter</li><li>Dart</li><li>Firebase Authentication</li><li>Camera and audio recording plugins</li><li>Biometric unlock</li></ul></div>
-        <div class="card"><h4>Deployment</h4><ul class="tags"><li>Docker</li><li>Azure App Service</li></ul></div>
+        <div class="card"><h4>Deployment</h4><ul class="tags"><li>Docker</li><li>Azure App Service</li><li>Azure for Students</li><li>GitHub Releases</li></ul></div>
         <div class="card"><h4>Collaboration</h4><ul class="tags"><li>Git</li><li>GitHub</li><li>Microsoft Teams</li></ul></div>
       </div>
+    </section>
+
+    <section id="future-work">
+      <h2>8. Commercialization and future work</h2>
+      <p>The app is currently distributed through GitHub Releases. The commercialization plan is to publish it on the public app stores so that buyers can install it like any other app:</p>
+      <ul>
+        <li><strong>Google Play Store.</strong> Publish the Android app on Google Play.</li>
+        <li><strong>Apple App Store.</strong> Build and publish the iOS version of the Flutter app on the App Store.</li>
+      </ul>
     </section>
 
     <section id="references">
