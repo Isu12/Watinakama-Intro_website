@@ -177,7 +177,7 @@
       </ol>
 
       <figure>
-        <a class="frame" href="images/component-pipelines.png"><img src="images/component-pipelines.png" width="1576" height="426" loading="lazy" alt="Processing pipeline of each component, from input to output. C1: VIN plate photo, quality check, CNN classifier, confidence check, verdict. C2: five view photos, view validator, damage classifiers, scoring formula, Body Condition Score. C3: three recordings, quality check, YAMNet embedding, SVM classifier, Mechanical Health Score. C4: vehicle details and component results, feature engineering, stacking ensemble, fair value, verdict."></a>
+        <a class="frame" href="images/component-pipelines.png"><img src="images/component-pipelines.png" width="1576" height="426" loading="lazy" alt="Processing pipeline of each component, from input to output. C1: VIN plate photo, quality check, CNN classifier, confidence check, verdict. C2: five view photos, view validator, damage classifiers, scoring formula, Body Condition Score. C3: one recording split into start, idle and acceleration, quality check, YAMNet embedding, SVM classifier, Mechanical Health Score. C4: vehicle details and component results, feature engineering, stacking ensemble, fair value, verdict."></a>
         <figcaption>Figure 2. Processing pipeline of each component, from the user's input to the result shown in the app. Select a figure to open it at full size.</figcaption>
       </figure>
 
@@ -193,7 +193,7 @@
       <p>Damage type and severity per view are combined by a scoring formula into a Body Condition Score from 0 to 100. The dataset was expanded with rotation, flip and crop augmentation.</p>
 
       <h3>5.4 Component 3: Engine sound diagnosis</h3>
-      <p>The user records the engine at start, idle and acceleration. Each clip is checked for duration and amplitude, resampled to 16&nbsp;kHz mono and passed through YAMNet to obtain a 1024-dimensional embedding, which an SVM classifies as Healthy, Knocking, Misfiring, Rotational Imbalance, Tappet Noise or Battery/Starting Fault. The result is converted to a Mechanical Health Score:</p>
+      <p>For a simpler user experience, the user uploads a single engine recording covering start, idle and light acceleration, and the API splits it into the three stages. Each clip is checked for duration and amplitude, resampled to 16&nbsp;kHz mono and passed through YAMNet to obtain a 1024-dimensional embedding, which an SVM classifies as Healthy, Knocking, Misfiring, Rotational Imbalance, Tappet Noise or Battery/Starting Fault. The result is converted to a Mechanical Health Score:</p>
       <p><span class="pill green">80&ndash;100 Healthy</span> <span class="pill amber">50&ndash;79 Inspection recommended</span> <span class="pill red">0&ndash;49 Critical fault</span></p>
       <p>Labelled faulty recordings were not available, so a <strong>synthetic fault generator</strong> injects fault signatures into healthy recordings: high-frequency impulses for knocking, periodic amplitude drops for misfiring, and repetitive high-pitched taps for tappet noise. Time-shift, noise and pitch augmentation add variety. Sixteen healthy recordings yielded more than 400 training clips.</p>
 
@@ -213,7 +213,7 @@
       <p>The training set of more than 2,000 records was produced by a Monte Carlo style simulation over a base set of historical prices, so that combinations of body score, engine fault and mileage are all represented.</p>
 
       <h3>5.6 Mobile application and integration</h3>
-      <p>The Flutter app guides the user through vehicle details, VIN scan, five-view body capture, three-stage audio recording and the results report. It checks that every backend is reachable before an inspection starts, keeps inspection data locally until the valuation is complete, and stores inspection history. Sign-in uses Firebase Authentication with e-mail verification and optional biometric unlock.</p>
+      <p>The Flutter app guides the user through vehicle details, VIN scan, five-view body capture, a single engine recording and the results report. It checks that every backend is reachable before an inspection starts, keeps inspection data locally until the valuation is complete, and stores inspection history. Sign-in uses Firebase Authentication with e-mail verification and optional biometric unlock.</p>
 
       <h3>5.7 Deployment and release</h3>
       <p>All four model services and the API gateway are deployed on Microsoft Azure as Docker containers on Azure App Service, hosted under the Azure for Students package. The mobile app connects only to the gateway, which routes each request to the right service.</p>
