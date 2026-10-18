@@ -177,7 +177,7 @@
       </ol>
 
       <figure>
-        <a class="frame" href="images/component-pipelines.png"><img src="images/component-pipelines.png" width="1576" height="426" loading="lazy" alt="Processing pipeline of each component, from input to output. C1: VIN plate photo, quality check, CNN classifier, confidence check, verdict. C2: five view photos, view validator, damage classifiers, scoring formula, Body Condition Score. C3: one recording split into start, idle and acceleration, quality check, YAMNet embedding, SVM classifier, Mechanical Health Score. C4: vehicle details and component results, feature engineering, stacking ensemble, fair value, verdict."></a>
+        <a class="frame" href="images/component-pipelines.png"><img src="images/component-pipelines.png" width="1576" height="426" loading="lazy" alt="Processing pipeline of each component, from input to output. C1: VIN plate photo, quality check, CNN classifier, confidence check, verdict. C2: five view photos, view validator, damage classifiers, scoring formula, Body Condition Score. C3: one recording split into start, idle and acceleration, quality check, YAMNet embedding, SVM classifier, Mechanical Health Score. C4: vehicle details and component results, feature engineering, hybrid model, fair value, verdict."></a>
         <figcaption>Figure 2. Processing pipeline of each component, from the user's input to the result shown in the app. Select a figure to open it at full size.</figcaption>
       </figure>
 
@@ -198,7 +198,7 @@
       <p>Labelled faulty recordings were not available, so a <strong>synthetic fault generator</strong> injects fault signatures into healthy recordings: high-frequency impulses for knocking, periodic amplitude drops for misfiring, and repetitive high-pitched taps for tappet noise. Time-shift, noise and pitch augmentation add variety. Sixteen healthy recordings yielded more than 400 training clips.</p>
 
       <h3>5.5 Component 4: Market valuation</h3>
-      <p>Vehicle specifications are combined with the VIN status, Body Condition Score and engine result. A stacking regressor (Random Forest, XGBoost and LightGBM base learners with a Ridge final estimator) predicts fair market value in LKR. Repair-cost ranges for the detected engine fault and body damage produce a negotiation range, and the asking price is compared with fair value:</p>
+      <p>Vehicle specifications are combined with the VIN status, Body Condition Score and engine result. A hybrid model, combining a constrained linear regression with gradient boosting, predicts fair market value in LKR. Repair-cost ranges for the detected engine fault and body damage produce a negotiation range, and the asking price is compared with fair value:</p>
       <div class="table-scroll">
         <table>
           <thead><tr><th>Condition</th><th>Verdict</th></tr></thead>
@@ -233,7 +233,7 @@
             <tr><td>C1 VIN authentication</td><td>ResNet50, fine-tuned</td><td>82.69%</td><td>300+ images</td><td>Real VIN images plus synthetically tampered copies</td></tr>
             <tr><td>C2 Body condition</td><td>MobileNetV3 + EfficientNetV2 ensemble</td><td>86.98%</td><td>500+ images</td><td>Base dataset expanded by rotation, flip and crop</td></tr>
             <tr><td>C3 Engine audio</td><td>YAMNet + tuned SVM</td><td>92.50%</td><td>400+ clips</td><td>16 healthy recordings expanded by the fault generator</td></tr>
-            <tr><td>C4 Market valuation</td><td>Stacking ensemble (RF, XGBoost, LightGBM)</td><td>96.70%</td><td>2,000+ records</td><td>Simulated from a base set of historical prices</td></tr>
+            <tr><td>C4 Market valuation</td><td>Hybrid (constrained linear + gradient boosting)</td><td>96.24%</td><td>2,000+ records</td><td>Simulated from a base set of historical prices</td></tr>
           </tbody>
         </table>
       </div>
@@ -282,8 +282,11 @@
             <caption>C4: Price prediction</caption>
             <thead><tr><th>Model</th><th>Accuracy</th></tr></thead>
             <tbody>
-              <tr><td>Random Forest / XGBoost alone</td><td>92&ndash;94%</td></tr>
-              <tr class="best"><td>Stacking regressor (Ridge final estimator)</td><td>96.70%, MAE &asymp; LKR 121,000</td></tr>
+              <tr><td>Year-average baseline</td><td>95.90%</td></tr>
+              <tr><td>Linear regression</td><td>96.16%</td></tr>
+              <tr><td>Random Forest / XGBoost alone</td><td>96.15%</td></tr>
+              <tr><td>Gradient Boosting</td><td>96.18%</td></tr>
+              <tr class="best"><td>Hybrid (constrained linear + gradient boosting)</td><td>96.24%, MAE &asymp; LKR 140,800</td></tr>
             </tbody>
           </table>
         </div>

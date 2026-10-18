@@ -78,7 +78,7 @@
         <p>Watinakama.LK addresses this with four cooperating machine-learning components delivered through one mobile application. A convolutional network verifies whether the VIN plate is original or altered. A set of lightweight image classifiers inspects five views of the exterior and produces a Body Condition Score. An audio pipeline built on YAMNet embeddings and a support vector machine listens to the engine and produces a Mechanical Health Score.</p>
       </div>
       <div>
-        <p>Finally, a stacking ensemble combines these three condition signals with the vehicle's specifications to estimate a fair market value and to tell the buyer whether the asking price is a good deal, fair, or overpriced.</p>
+        <p>Finally, a hybrid price model combines these three condition signals with the vehicle's specifications to estimate a fair market value and to tell the buyer whether the asking price is a good deal, fair, or overpriced.</p>
         <p>What is new is the integration. Existing work treats damage detection, engine diagnosis and price prediction as separate problems, and existing price models rely on listing data alone. This project links measured condition to price in a single workflow that a non-expert can complete in minutes.</p>
         <ul class="tags">
           <li>Computer vision</li><li>Audio classification</li><li>Transfer learning</li><li>Ensemble regression</li><li>Mobile application</li>
@@ -126,7 +126,7 @@
       <div class="card stat"><b>82.69%</b><span>VIN tamper classification<br>Fine-tuned ResNet50</span></div>
       <div class="card stat"><b>86.98%</b><span>Body damage classification<br>MobileNetV3 + EfficientNetV2 ensemble</span></div>
       <div class="card stat"><b>92.50%</b><span>Engine fault classification<br>YAMNet + tuned SVM</span></div>
-      <div class="card stat"><b>96.70%</b><span>Price prediction<br>Stacking ensemble, MAE &asymp; LKR 121,000</span></div>
+      <div class="card stat"><b>96.24%</b><span>Price prediction<br>Hybrid model, MAE &asymp; LKR 140,800</span></div>
     </div>
   </div>
 </section>
